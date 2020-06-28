@@ -1,111 +1,404 @@
-@font-face {
-    font-family: "Roboto Mono";
-    src: url("../fonts/roboto-mono-medium.ttf");
-}
 
-:root {
-    --font: "Roboto Mono";
-    --background: #0f0e17;
-    --foreground: #fffffe;
-    --pink: #e53170;
-    --red: #f25f4c;
-    --orange: #ff8906;
-    --branch: 1px solid #a7a9be;
-}
 
-html {
-    font-size: 18px;
-}
-
-body {
-    background: var(--background);
-}
-
-.container {
-    position: absolute;
-    top: 50%;
-    left: 45%;
-    transform: translate(-50%, -50%);
-}
-
-.prompt {
-    font-family: var(--font);
-    color: var(--foreground);
-}
-
-.prompt~.prompt {
-    padding: 1.5rem 0 0.3125rem;
-}
-
-span {
-    color: var(--pink);
-}
-
-h1 {
-    display: inline;
-    font-family: var(--font);
-    font-size: 1rem;
-    font-weight: normal;
-    color: var(--red);
-}
-
-.tree > ul {
+@charset "utf-8";
+/*------------------------------------*\
+    $RESET
+\*------------------------------------*/
+/* A more considered reset; more of a restart... As per: csswizardry.com/2011/10/reset-restarted */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr,
+a, abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strong, sub, sup, tt, var,
+b, u, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
     margin: 0;
-    padding-left: 1rem;
+    padding: 0;
 }
-
-ul {
-    list-style: none;
-    padding-left: 2.5rem;
+article, aside, details, figcaption, figure, footer,
+header, hgroup, menu, nav, section {
+    display: block;
 }
-
-li {
-    position: relative;
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
 }
-
-li::before, li::after {
-    content: "";
-    position: absolute;
-    left: -0.75rem;
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
 }
-
-li::before {
-    border-top: var(--branch);
-    top: 0.75rem;
-    width: 0.5rem;
+strong, b, mark {
+    font-weight: bold;
+    font-style: inherit;
 }
-
-li::after {
-    border-left: var(--branch);
-    height: 100%;
-    top: 0.25rem;
+em, i, cite, q, address, dfn, var {
+    font-style: italic;
+    font-weight: inherit;
 }
-
-li:last-child::after {
-    height: 0.5rem;
+abbr[title], dfn[title] {
+    cursor: help;
+    border-bottom: 1px dotted;
 }
-
-a {
-    font-family: var(--font);
-    font-size: 1rem;
-    color: var(--foreground);
+ins {
+    border-bottom: 1px solid;
+}
+a, u, ins {
     text-decoration: none;
-    outline: none;
 }
-
-a:hover {
-    color: var(--background);
-    background: var(--orange);
+del, s {
+    text-decoration: line-through;
 }
-
-form h1 {
-    padding-left: 0.125rem;
+pre, code, samp, kbd {
+    font-family: monospace;
 }
-
-input {
-    font-family: var(--font);
-    font-size: 1rem;
-    color: var(--foreground);
-    background-color: var(--background);
+small {
+    font-size: 0.75em;
+}
+img {
     border: none;
+    font-style: italic;
+}
+input,
+select, option, optgroup,
+textarea {
+    font: inherit;
+}
+
+
+
+
+
+/*------------------------------------*\
+    $MAIN
+\*------------------------------------*/
+html {
+    /* ORIGINAL COLOR ***  color: #95a4a9;*/
+    color: #000000;
+    font: 12px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+body {
+    margin: 10% 30%;
+   /* background: #ffffff url("../img/ground.jpg") no-repeat right top fixed;*/
+    background-image: url("../img/ground.jpg");
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: 0% 0%;
+    
+}
+
+p{
+  font-size: 15px;
+}
+
+.avatar {
+    float: left;
+    margin: 0 40px 20px 0;
+}
+    .avatar img {
+        max-width: 200px;
+        max-height: 200px;
+        border-radius: 125px;
+    }
+
+.content {
+    float: left;
+    width: 380px;
+    color: white;}
+    .title {
+        font-size: 48px;
+        font-weight: normal;
+        line-height: 1;
+    }
+
+    .social-icons li {
+        display: inline;
+    }
+        .social-icons a {
+            display: inline-block;
+            margin-right: 10px;
+            text-indent: -9999px;
+        }
+            .twitter {
+                background-image: url(../img/twitter.png);
+                width: 20px;
+                height: 17px;
+            }
+            .facebook {
+                background-image: url(../img/facebook.svg);
+                width: 18px;
+		filter: invert(100%);
+                height: 21px;
+            }
+            .imgur {
+                background-image: url(../img/imgur.png);
+		width: 20px;
+		height: 20px;
+            }
+            .dribbble {
+                background-image: url(../img/dribbble.png);
+                width: 21px;
+                height: 19px;
+            }
+            .instagram {
+                background-image: url(../img/instagram.svg);
+                width: 18px;
+		filter: invert(100%);
+                height: 21px;
+            }
+            .reddit {
+                background-image: url(../img/reddit.svg);
+                width: 20px;
+filter: invert(100%);
+                height: 20px;
+            }
+            .linkedin {
+                background-image: url(../img/linkedin.svg);
+                width: 19px;
+filter: invert(100%);
+		height: 22px;
+            }
+
+
+.myButton {
+	-moz-box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	-webkit-box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #768d87), color-stop(1, #6c7c7c));
+	background:-moz-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:-webkit-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:-o-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:-ms-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#768d87', endColorstr='#6c7c7c',GradientType=0);
+	background-color:#768d87;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	border:1px solid #566963;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:11px 23px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #2b665e;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #6c7c7c), color-stop(1, #768d87));
+	background:-moz-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-webkit-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-o-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-ms-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6c7c7c', endColorstr='#768d87',GradientType=0);
+	background-color:#6c7c7c;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+        
+
+/*------------------------------------*\
+    $TYPOGRAPHY
+\*------------------------------------*/
+p,
+ul, ol, dl,
+.title {
+    margin-bottom: 20px;
+}
+p {
+    font-weight: bold;
+}
+ul, ol, dl {
+    list-style-type: none;
+}
+a {
+    color: #339999;
+    font-weight: bold;
+}
+a:hover, a:focus {
+    color: #95a4a9;
+    -webkit-transition: color 0.2s ease;
+    -moz-transition: color 0.2s ease;
+    -o-transition: color 0.2s ease;
+    -ms-transition: color 0.2s ease;
+    transition: color 0.2s ease;
+}
+
+
+
+
+
+/*------------------------------------*\
+    $MISC
+\*------------------------------------*/
+a img:hover,
+.social-icons a:hover {
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=85)";
+    filter: alpha(opacity=85);
+    opacity: 0.85;
+    -webkit-transition: opacity 0.2s ease;
+    -moz-transition: opacity 0.2s ease;
+    -o-transition: opacity 0.2s ease;
+    -ms-transition: opacity 0.2s ease;
+    transition: opacity 0.2s ease;
+}
+
+/*
+Animate.css - http://daneden.me/animate
+LICENSED UNDER THE  MIT LICENSE (MIT)
+
+Copyright (c) 2012 Dan Eden
+*/
+.animated {
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -ms-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    -ms-animation-duration: 1s;
+    -o-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+.animated.hinge {
+    -webkit-animation-duration: 2s;
+    -moz-animation-duration: 2s;
+    -ms-animation-duration: 2s;
+    -o-animation-duration: 2s;
+    animation-duration: 2s;
+}
+
+@-webkit-keyframes bounceInDown {
+    0% {
+        -webkit-transform: translateY(-2000px);
+    }
+
+    60% {
+        -webkit-transform: translateY(30px);
+    }
+
+    80% {
+        -webkit-transform: translateY(-10px);
+    }
+
+    100% {
+        -webkit-transform: translateY(0);
+    }
+}
+
+@-moz-keyframes bounceInDown {
+    0% {
+        -moz-transform: translateY(-2000px);
+    }
+
+    60% {
+        -moz-transform: translateY(30px);
+    }
+
+    80% {
+        -moz-transform: translateY(-10px);
+    }
+
+    100% {
+        -moz-transform: translateY(0);
+    }
+}
+
+@-o-keyframes bounceInDown {
+    0% {
+        -o-transform: translateY(-2000px);
+    }
+
+    60% {
+        -o-transform: translateY(30px);
+    }
+
+    80% {
+        -o-transform: translateY(-10px);
+    }
+
+    100% {
+        -o-transform: translateY(0);
+    }
+}
+
+@keyframes bounceInDown {
+    0% {
+        transform: translateY(-2000px);
+    }
+
+    60% {
+        transform: translateY(30px);
+    }
+
+    80% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.bounceInDown {
+    -webkit-animation-name: bounceInDown;
+    -moz-animation-name: bounceInDown;
+    -o-animation-name: bounceInDown;
+    animation-name: bounceInDown;
+}
+
+.background {
+    display: inline-block;
+/*    background: #f3f3f3 url("https://i.redditmedia.com/5yX5htFe_eIiRTmwFzeLob6bwSwPEzxEV-dZ8ODQEnk.jpg?s=d88b3205451db42910187bdea979bc74") no-repeat right top;*/
+	background: #f3f3f3 url(../img/ground.jpg) no-repeat right top;
+	background-size:cover;
+
+}
+
+
+
+/*------------------------------------*\
+    $MOBILE
+\*------------------------------------*/
+@media handheld, only screen and (max-width: 720px) {
+    .avatar,
+    .content {
+        float: none;
+
+    }
+
+    body {
+   	 margin: 10%;
+   	 background: #ffffff url("../img/ground.jpg") no-repeat right top;
+
+    }
+
+    p{
+      font-size: 12px;
+    }
+
+
+    .avatar img {
+        max-width: 125px;
+        max-height: 125px;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .background{
+	background: #f3f3f3 url(../img/ground.jpg)   no-repeat center ;
+    }
 }
